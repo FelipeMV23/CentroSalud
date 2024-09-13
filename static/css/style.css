@@ -1,0 +1,43 @@
+* {
+    margin: 0px 10px; /* Ajusta el valor según tus necesidades */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho y alto total */
+}
+
+.button-text{
+    color: #3767a6;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button-text:hover{
+    color:white;
+    background-color: #D91424;
+}
+
+.button-background:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.titulo{
+    text-align: center;
+    color: #3767a6;
+
+}
+
+.button-hora{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    background-color: #D91424;
+}
+
+.button-hora:hover{
+    background-color: #37a644;
+    cursor: pointer;
+    color: white;
+}
+
+

@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'navegacion/navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'css/Register.css' %}">
+
+<div class="container">
+    <section>
+        <h1>Creación de cuenta</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Nombre de Usuario</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Correo Electrónico</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">Nombre</label>
+                {{ form.first_name }}
+                {% if form.first_name.errors %}
+                    <div class="error">{{ form.first_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">Apellido</label>
+                {{ form.last_name }}
+                {% if form.last_name.errors %}
+                    <div class="error">{{ form.last_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.rut.id_for_label }}">RUT</label>
+                {{ form.rut }}
+                {% if form.rut.errors %}
+                    <div class="error">{{ form.rut.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Contraseña</label>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="error">{{ form.password1.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Confirmar Contraseña</label>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="error">{{ form.password2.errors }}</div>
+                {% endif %}
+            </div>
+
+            <input class="botons" type="submit" value="Crear usuario">
+        </form>
+    </section>
+</div>
