@@ -16,23 +16,51 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo -->
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static 'images/Centro-medico-veintisiete-y-medio.png' %}" alt="Logo" style="height: 90px;">
                 </a>
                 <!-- Burger Menu Button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <img src="{% static 'images/burger-bar2.png' %}" alt="Menu hamburguesa" style="width: 40px; height: 40px;">
                 </button>
                 <!-- Navigation Items -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        {% for item in nav_items %}
-                        <li class="nav-item mx-1">
+                        <li class="nav-item mx-1"></li>
                             <div class="col button-background">
-                                <a class="nav-link fw-normal button-text" href="{% url item.url_name %}">{{ item.name }}</a>
+                                <a class="nav-link fw-normal button-text" href="{% url 'home' %}">Inicio</a>
                             </div>
                         </li>
-                        {% endfor %}
+                        <!-- Otros enlaces de navegación -->
+                        <li class="nav-item mx-1">
+                            <div class="col button-background">
+                                <a class="nav-link fw-normal button-text" href="{% url 'especialistas' %}">Especialidades</a>
+                            </div>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <div class="col button-background">
+                                <a class="nav-link fw-normal button-text" href="{% url 'especialistas' %}">Toma de hora</a>
+                            </div>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li class="nav-item mx-1">
+                                <div class="col button-background">
+                                    <a class="nav-link fw-normal button-text" href="{% url 'logout' %}">Cerrar sesión</a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="nav-item mx-1">
+                                <div class="col button-background">
+                                    <a class="nav-link fw-normal button-text" href="{% url 'login' %}">Iniciar sesión</a>
+                                </div>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <div class="col button-background">
+                                    <a class="nav-link fw-normal button-text" href="{% url 'register' %}">Registrarse</a>
+                                </div>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

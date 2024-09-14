@@ -6,5 +6,6 @@ def nav_items(request):
             {'name': 'Toma de hora', 'url_name': 'especialistas'},
             {'name': 'Iniciar sesión', 'url_name': 'login'},
             {'name': 'Registrarse', 'url_name': 'register'},
+            {'name': 'Cerrar sesión', 'url_name': 'user_logout'},  # Añadido cerrar sesión
         ]
     }

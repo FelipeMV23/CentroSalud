@@ -1,26 +1,39 @@
 {% load static %}
 {% include 'navegacion/navbar.html' %}
-<form method="post">
-    {% csrf_token %}
-    <section class="form-register">
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+<link rel="stylesheet" href="{% static 'css/Register.css' %}">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <section>
+        <h1>Iniciar Sesión</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" id="username" required placeholder="Ingrese su Nombre">
             </div>
-        {% endfor %}
-    {% endif %}
-        <h1>Iniciar Sesion</h1>
-        <p>
-        <input class="controls" input type="text" name="username" id="username" class="form-control" required placeholder="Ingrese su Nombre">
-        <span class="helptext">Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_ </span>
-        </p>
-        
-        <p>
-        <input class="controls"  type="password" name="password" id="password" class="form-control" required placeholder="Ingrese su Contraseña">
-        </p>
-        
-        <input class="botons" type="submit" value="Iniciar Sesion">
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" id="password" required placeholder="Ingrese su Contraseña">
+            </div>
+
+            <!-- Botón de envío estilizado -->
+            <input class="buttons" type="submit" value="Iniciar Sesión">
+        </form>
     </section>
-</form>
+</div>
