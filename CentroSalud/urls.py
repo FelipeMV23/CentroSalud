@@ -21,7 +21,7 @@ from CentroSalud.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', home, name='home'),
+    path('home/', home, name='home'),
     path('', include('users.urls')),
     path('__reload__/', include("django_browser_reload.urls"))
 ]
