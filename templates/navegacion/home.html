@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<body>
+    <header>
+        {% include 'navegacion/navbar.html' %}
+    </header>
+    
+    <div class="container-fluid p-0">
+        <div class="container-relative">
+            <img src="{% static 'images/inicio.png' %}" alt="home" class="full-width-image">
+            <div class="text-overlay">
+                <h1>Tu Título Aquí</h1>
+                <p>Tu párrafo aquí. Este texto se adaptará a diferentes tamaños de pantalla.</p> 
+            </div>
+        </div>
+    </div>
+</body>

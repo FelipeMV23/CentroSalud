@@ -6,5 +6,5 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
-    return render(request, 'navegacion/navbar.html', nav_items('nav_items'))
+    return render(request, 'navegacion/home.html', nav_items('nav_items'))
 
