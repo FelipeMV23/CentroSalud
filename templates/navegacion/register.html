@@ -3,10 +3,8 @@
 {% include 'navegacion/navbar.html' %}
 
 <link rel="stylesheet" href="{% static 'css/register.css' %}">
-<br>
-<br>
-<br>
-<div class="container">
+
+<div class="container container-form">
     <section>
         <h1>Creación de cuenta</h1>
 
@@ -14,49 +12,49 @@
             {% csrf_token %}
             
             <div class="form-group">
-                {{ form.username|add_class:"form-control"|attr:"placeholder=Nombre de Usuario" }}
+                {{ form.username|add_class:"form-control"|attr:"placeholder:Nombre de Usuario" }}
                 {% if form.username.errors %}
                     <div class="error">{{ form.username.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.email|add_class:"form-control"|attr:"placeholder=Correo Electrónico" }}
+                {{ form.email|add_class:"form-control"|attr:"placeholder:Correo Electrónico" }}
                 {% if form.email.errors %}
                     <div class="error">{{ form.email.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.first_name|add_class:"form-control"|attr:"placeholder=Nombre" }}
+                {{ form.first_name|add_class:"form-control"|attr:"placeholder:Nombre" }}
                 {% if form.first_name.errors %}
                     <div class="error">{{ form.first_name.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.last_name|add_class:"form-control"|attr:"placeholder=Apellido" }}
+                {{ form.last_name|add_class:"form-control"|attr:"placeholder:Apellido" }}
                 {% if form.last_name.errors %}
                     <div class="error">{{ form.last_name.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.rut|add_class:"form-control"|attr:"placeholder=RUT" }}
+                {{ form.rut|add_class:"form-control"|attr:"placeholder:RUT" }}
                 {% if form.rut.errors %}
                     <div class="error">{{ form.rut.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.password1|add_class:"form-control"|attr:"placeholder=Contraseña" }}
+                {{ form.password1|add_class:"form-control"|attr:"placeholder:Contraseña" }}
                 {% if form.password1.errors %}
                     <div class="error">{{ form.password1.errors }}</div>
                 {% endif %}
             </div>
 
             <div class="form-group">
-                {{ form.password2|add_class:"form-control"|attr:"placeholder=Confirmar Contraseña" }}
+                {{ form.password2|add_class:"form-control"|attr:"placeholder:Confirmar Contraseña" }}
                 {% if form.password2.errors %}
                     <div class="error">{{ form.password2.errors }}</div>
                 {% endif %}
@@ -66,3 +64,9 @@
         </form>
     </section>
 </div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Esta línea debería mostrar todos los campos del formulario. -->
+    <button type="submit">Crear usuario</button>
+</form>
